@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    boolean existsByUsername(String username);
+
     @Transactional(readOnly = true)
     User findByUsername(String username); //For search user for username
 
